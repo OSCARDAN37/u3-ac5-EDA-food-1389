@@ -1,0 +1,33 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+# Oscar Flores NC 1389
+# 1. Leer el archivo CSV comida pais India
+df_food_India = pd.read_csv('indian_food.csv')
+print("\n--- DATOS LEÍDOS DESDE CSV, COMIDA INDIA 1389 ---")
+print(df_food_India)
+print("\n--- Mostrar Nombre, Comida + ingredientes 1389 ---")
+recetas = df_food_India[['name','ingredients']]
+print(recetas)
+print("\n--- Tiempo de cocinado Motrar 10 registros con head 1389 ---")
+nombre_y_hora = df_food_India[['name','cook_time']].head(10)
+print(nombre_y_hora)
+# print("\n--- Grafica comida (x) Tiempo de cocina 1389 ---")
+# print("\n--- Grafica comida (x) texto a 30 grados 1389 ---")
+nombre_y_hora.plot.bar(x='name',y='cook_time', rot=30)
+plt.title('Comida tipica de India Oscar Flores 1389')
+plt.xlabel('nombre platillo')
+plt.ylabel('tiempo de cocinado')
+plt.show()
+# print("\n--- Grafica de 2 columnas 1389 ---")
+nombre_y_hora = df_food_India[['name', 'prep_time', 'cook_time']].head(10)
+nombre_y_hora.plot.bar(x='name', rot=30)
+plt.title('Grafica de 2 columnas Oscar Flores 1389')
+plt.xlabel('nombre platillo')
+plt.ylabel('tiempo de cocinado pre y comida')
+plt.show()
+# print("\n--- Grafica apiladas una tras otra verticalmente 1389 ---")
+nombre_y_hora.plot.bar(x='name', stacked=True, rot=30)
+plt.title('Grafica apilada Oscar Flores 1389')
+plt.xlabel('nombre platillo')
+plt.ylabel('tiempo de cocinado pre y comida')
+plt.show()
